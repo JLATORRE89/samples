@@ -8,6 +8,14 @@ Contents of /var/lib/tftpboot:
 │   └── vmlinuz
 └── shim.efi
 
+File permissions:
+
+ ls -ltr
+total 2376
+-rw-r--r--. 1 root root 1175544 Apr  7 19:54 grubx64.efi
+-rw-r--r--. 1 root root 1252576 Apr  7 19:54 shim.efi
+drwxr-xr-x. 2 root root      39 Apr  7 19:56 images
+-rw-r--r--  1 root root     248 Apr  8 00:11 grub.cfg
 
 Contents of grub.cfg:
 set default=0
