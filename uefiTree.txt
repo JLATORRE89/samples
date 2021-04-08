@@ -1,0 +1,20 @@
+Basic TFTP configuration for UEFI boot.
+Contents of /var/lib/tftpboot:
+.
+├── grub.cfg
+├── grubx64.efi
+├── images
+│   ├── initrd.img
+│   └── vmlinuz
+└── shim.efi
+
+
+Contents of grub.cfg:
+set default=0
+set timeout=60
+rd.net.timeout.carrier=60
+ip=device-name:dhcp
+menuentry 'Install RHEL 7.9' {
+        linuxefi images/vmlinuz inst.ks=http://192.168.2.1/rhel79/ks.cfg inst.stage2=http://192.168.2.1/rhel79/ quiet
+        initrdefi images/initrd.img
+}
