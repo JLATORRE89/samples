@@ -1,1 +1,4 @@
+# list account details for specfic linux user
 ansible redhat -a "chage -l root"
+# copy file from repo server to remote hosts
+ansible redhat -m copy -a "src=/etc/yum.repos.d/local.repo dest=/etc/yum.repos.d/local.repo"
