@@ -2,3 +2,11 @@
 ansible redhat -a "chage -l root"
 # copy file from repo server to remote hosts
 ansible redhat -m copy -a "src=/etc/yum.repos.d/local.repo dest=/etc/yum.repos.d/local.repo"
+# install package
+ansible redhat -a "yum install kernel-devel -y"
+# List all security updates, do not install them
+ansible redhat -a "yum updateinfo list security all"
+# Update by advisory ID
+ansible redhat -a "yum update --advisory=RHSA-2020:1178"
+# Install minimal amount of security patches
+ansible redhat -a "yum update-minimal --security -y"
