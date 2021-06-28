@@ -10,3 +10,7 @@ ansible redhat -a "yum updateinfo list security all"
 ansible redhat -a "yum update --advisory=RHSA-2020:1178"
 # Install minimal amount of security patches
 ansible redhat -a "yum update-minimal --security -y"
+# Rebuild GRUB2 with dracut
+ansible redhat -a "cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).bak.$(date +%m-%d-%H%M%S).img && dracut -f -v"
+# Verify results for EFI system
+ansible redhat -a "grep initrd /boot/efi/EFI/redhat/grub.cfg"
