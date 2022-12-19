@@ -14,4 +14,4 @@ virt-install \
 
 
 #Clean up broken install:
-virsh undefine blender && virsh destroy blender && rm -rf /var/lib/libvirt/images/blender.img
+virsh undefine blender && virsh destroy blender && rm -rf /var/lib/libvirt/images/test.img
