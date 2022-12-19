@@ -1,6 +1,6 @@
 #Example install with Kickstart:
 virt-install \
---name blender \
+--name test \
 --ram 2048 \
 --vcpus 2 \
 --location http://192.168.xx.39/install \
@@ -14,4 +14,4 @@ virt-install \
 
 
 #Clean up broken install:
-virsh undefine blender && virsh destroy blender && rm -rf /var/lib/libvirt/images/test.img
+virsh undefine test && virsh destroy test && rm -rf /var/lib/libvirt/images/test.img
