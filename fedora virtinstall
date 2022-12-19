@@ -1,0 +1,17 @@
+#Example install with Kickstart:
+virt-install \
+--name blender \
+--ram 2048 \
+--vcpus 2 \
+--location http://192.168.xx.39/install \
+--disk path=/var/lib/libvirt/images/test.img,size=15 \
+--os-variant fedora36 \
+--os-type linux \
+--network bridge=br0 \
+--graphics none \
+--console pty,target_type=serial \
+--extra-args 'inst.ks=http://192.168.xx.39/iso/ks.cfg console=ttyS0,115200n8'
+
+
+#Clean up broken install:
+virsh undefine blender && virsh destroy blender && rm -rf /var/lib/libvirt/images/blender.img
